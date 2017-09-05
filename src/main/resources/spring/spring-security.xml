@@ -1,0 +1,30 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+              http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.2.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+
+	<!-- 主要設定 -->
+	<security:http auto-config="true">
+		<!-- 開放的網址使用IS_AUTHENTICATED_ANONYMOUSLY-->
+		<security:intercept-url pattern="/index" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		
+				
+		<!-- 遇到沒有權限的網頁將會被導向去的網址  -->
+		<security:access-denied-handler
+			error-page="/login_" />
+
+		<!-- form login configuration，使用AP自訂的登入頁時所使用的設定 -->
+		<security:form-login login-page="/login_"
+			default-target-url="/"			
+			authentication-failure-url="/login_?error"
+			username-parameter="j_username" password-parameter="j_password" />
+		<security:logout logout-success-url="/login_" />
+	</security:http>
+
+
+	<!-- 頁面使用ss tag一定要加這個bean -->
+	<bean id="webexpressionHandler"
+		class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler" />
+
+</beans>

@@ -1,0 +1,78 @@
+<%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib uri="/struts-tags" prefix="s"%>
+<%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator"
+	prefix="decorator"%>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
+<link rel="icon" type="image/x-icon" sizes="16x16"
+	href="<c:url value="/favicon.ico"/>">
+<link rel="stylesheet" href="<c:url value="/css/nav/navbar.css"/>" />
+
+<div id="navbarTmpl">
+	<%-- <img class="img-responsive" src="<c:url value="/images/banner-graphic.png" />" /> --%>
+	<nav class="navbar navbar-inverse" role="navigation"> <!-- Brand and toggle get grouped for better mobile display -->
+	<div class="navbar-header">
+		<button type="button" class="navbar-toggle" data-toggle="collapse"
+			data-target="#navbar-collapse-1">
+			<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span>
+			<span class="icon-bar"></span> <span class="icon-bar"></span>
+		</button>
+	</div>
+
+	<!-- Collect the nav links, forms, and other content for toggling -->
+	<div class="collapse navbar-collapse" id="navbar-collapse-1">
+		<ul class="nav navbar-nav">
+			<li id="home"><a href="<s:url action='index'/>"
+				style="font-size: 15px"><i class="large icon-home icon"></i> 首頁</a>
+			</li>
+			<li id="datasource"><a href="<s:url value='/dmt_toDataSource'/>"
+				style="font-size: 15px"><i class="large icon-search icon"></i>
+					資料來源</a></li>
+			<li id="datatopic"><a href="<s:url value='/dmt_toDataTopic'/>"
+				style="font-size: 15px"><i class="large icon-search icon"></i>
+					資料主題</a></li>
+			<li id="dataset"><a href="<s:url value='/dmt_toDataset'/>"
+				style="font-size: 15px"><i class="large icon-search icon"></i>
+					資料集</a></li>
+			<sec:authorize access="hasRole('ROLE_ADMIN')">
+				<li id="sampling"><a href="<s:url value='/spd_toSampling'/>"
+					style="font-size: 15px"><i class="large icon-search icon"></i>
+						抽樣資料集</a></li>
+
+				<li id="datamanagement" class="dropdown menuimg"><a href="#"
+					class="dropdown-toggle" data-toggle="dropdown"><i
+						class="large icon-search icon"></i>資料管理<b class="caret"></b> </a>
+					<ul class="dropdown-menu">
+						<li><a href="<s:url value='/dm_toDataSource'/>">新增修改資料集來源</a>
+						</li>
+						<li><a href="<s:url value='/dm_toDatasetTopic'/>">新增修改資料集主題</a>
+						</li>
+						<li><a href="<s:url value='/dm_toDatasetRole'/>">新增修改角色權限</a>
+						</li>
+					</ul></li>
+				<li id="useraccount"><a
+					href="<s:url value='/um_toUseraccount'/>" style="font-size: 15px"><i
+						class="large icon-search icon"></i> 使用者帳號管理</a></li>
+			</sec:authorize>
+			<li id="auth" class="dropdown">
+				<!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-size:15px"><i class="large icon-bigdata icon"></i> test <b class="caret"></b></a> -->
+				<sec:authorize access="!isAuthenticated()">
+					<a href="<s:url value='/login_'/>" style="font-size: 15px"><i
+						class="large icon-login icon"></i> 登入</a>
+				</sec:authorize> <sec:authorize access="isAuthenticated()">
+					<a href="<c:url value='/j_spring_security_logout'/>"
+						style="font-size: 15px"><i class="large icon-login icon"></i>
+						登出</a>
+				</sec:authorize></li>
+			<li id="welcome"><sec:authorize access="isAuthenticated()">
+					<k> <i class="large icon-user icon"></i> <sec:authentication
+						property="principal.username" /> 你好！</k>
+				</sec:authorize></li>
+
+		</ul>
+	</div>
+	<!-- /.navbar-collapse --> </nav>
+</div>

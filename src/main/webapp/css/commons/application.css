@@ -1,0 +1,39 @@
+@CHARSET "UTF-8";
+
+body {
+	font-family: "微軟正黑體", Helvetica, Arial, sans-serif;
+	padding: 10px;
+	background-color: #ECF4F7;
+}
+
+.container {
+	width: auto; 
+	margin-right: 20px;
+    margin-left: 20px; 
+}
+
+#petTabstrip .k-content {
+    min-height: 175px;
+    height: 175px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.ui.form .field>label {
+	font-size:20px;
+}
+.ui.large.button, .ui.large.buttons .button, .ui.large.buttons .or {
+		font-size:20px;
+}
+.modal{
+	overflow-y: auto;
+}
+.breadcrumb {
+    background-color: rgba(245, 225, 182, 0.69);
+}
+
+.vz-background{
+	overflow:hidden;
+}
+.vz-weighted_tree-viz{
+	overflow:hidden;
+}

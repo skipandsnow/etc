@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+
+	<constant name="struts.devMode" value="false" />
+
+	<!-- set the maximum file size limit in a single request to 100MB -->
+	<constant name="struts.multipart.maxSize" value="104857600" />
+	<constant name="struts.action.extension" value="," />
+	<constant name="struts.multipart.saveDir" value="D:/" />
+
+	<package name="default" extends="struts-default,json-default">
+
+		<interceptors>
+			<interceptor-stack name="appDefaultStack">
+				<interceptor-ref name="defaultStack">
+					<param name="exception.logEnabled">true</param>
+					<param name="exception.logLevel">ERROR</param>
+				</interceptor-ref>
+				<interceptor-ref name="fileUpload">
+					<!-- default limit for single file size to 2MB -->
+					<param name="maximumSize">2097152</param>
+				</interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+
+		<default-interceptor-ref name="appDefaultStack" />
+
+		<global-results>
+			<result name="error">/WEB-INF/jsp/common/error.jsp</result>
+			<result name="Exception">/WEB-INF/jsp/common/error.jsp</result>
+			<result name="jsonStream" type="stream">
+				<param name="contentType">application/json</param>
+				<param name="inputName">jsonDataStream</param>
+			</result>
+			<result name="json" type="json">
+				<param name="root">jsonData</param>
+			</result>
+
+		</global-results>
+
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception"
+				result="error" />
+		</global-exception-mappings>
+
+	</package>
+
+	<package name="root" extends="default" namespace="/"
+		strict-method-invocation="false">
+		<default-action-ref name="index" />
+		<action name="index" class="com.ctbc.action.IndexAction">
+			<result name="index">/WEB-INF/jsp/common/welcome.jsp</result>
+		</action>
+
+		<action name="welcome">
+			<result>/WEB-INF/jsp/common/welcome.jsp</result>
+		</action>
+
+		<action name="Login">
+			<result>/login.jsp</result>
+		</action>
+		<action name="etc_*" class="com.ctbc.action.EtcAction" method="{1}">
+			<result name="analysis1">/WEB-INF/jsp/etc/etc_analysis1.jsp</result>
+			<result name="analysis2">/WEB-INF/jsp/etc/etc_analysis2.jsp</result>
+			<result name="analysis3">/WEB-INF/jsp/etc/etc_analysis3.jsp</result>
+		</action>
+	</package>
+
+</struts>
