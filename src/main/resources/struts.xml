@@ -52,7 +52,7 @@
 	<package name="root" extends="default" namespace="/"
 		strict-method-invocation="false">
 		<default-action-ref name="index" />
-		<action name="index" class="com.ctbc.action.IndexAction">
+		<action name="index" class="com.etc.action.IndexAction">
 			<result name="index">/WEB-INF/jsp/common/welcome.jsp</result>
 		</action>
 
@@ -63,7 +63,7 @@
 		<action name="Login">
 			<result>/login.jsp</result>
 		</action>
-		<action name="etc_*" class="com.ctbc.action.EtcAction" method="{1}">
+		<action name="etc_*" class="com.etc.action.EtcAction" method="{1}">
 			<result name="analysis1">/WEB-INF/jsp/etc/etc_analysis1.jsp</result>
 			<result name="analysis2">/WEB-INF/jsp/etc/etc_analysis2.jsp</result>
 			<result name="analysis3">/WEB-INF/jsp/etc/etc_analysis3.jsp</result>

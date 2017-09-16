@@ -32,13 +32,13 @@
 				</li>
 				<li id="analysis1"><a
 					href="<s:url value='/etc_toAnalysis1'/>" style="font-size: 15px"><i
-						class="large icon-search icon"></i>車流交互分析</a></li>
+						class="large icon-search icon"></i>給我最佳路線</a></li>
 				<li id="analysis2"><a href="<s:url value='/etc_toAnalysis2'/>"
 					style="font-size: 15px"><i class="large icon-search icon"></i>
-						分析二</a></li>
+						出遊順暢日</a></li>
 				<li id="analysis3"><a href="<s:url value='/etc_toAnalysis3'/>"
 					style="font-size: 15px"><i class="large icon-search icon"></i>
-						分析三</a></li>
+						診療不通室</a></li>
 <%-- 				<li id="datamanagement" class="dropdown menuimg"><a href="#"
 					class="dropdown-toggle" data-toggle="dropdown"><i
 						class="large icon-search icon"></i>資料管理<b class="caret"></b> </a>

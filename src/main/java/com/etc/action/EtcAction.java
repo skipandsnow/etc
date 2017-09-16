@@ -1,4 +1,4 @@
-package com.ctbc.action;
+package com.etc.action;
 
 public class EtcAction {
 	public String execute() throws Exception {

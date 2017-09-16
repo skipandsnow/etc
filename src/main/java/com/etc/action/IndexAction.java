@@ -1,4 +1,4 @@
-package com.ctbc.action;
+package com.etc.action;
 
 public class IndexAction {
 	public String execute() throws Exception {
