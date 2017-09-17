@@ -31,11 +31,11 @@
 <link href="<c:url value="/css/commons/kendo.bootstrap.min.css"/>"
 	rel="stylesheet" />
 
-
-<%-- <script src="<c:url value="/js/commons/jquery-1.10.1.min.js"/>"></script> --%>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"
-	integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-	crossorigin="anonymous"></script>
+<script
+	src="<c:url value="/js/commons/JQuery-3.2.1/jquery-3.2.1.min.js"/>"></script>
+<script src="<c:url value="/js/commons/Popper-1.12.5/popper.min.js"/>"></script>
+<script
+	src="<c:url value="/js/commons/Popper-1.12.5/popper-utils.min.js"/>"></script>
 <script src="<c:url value="/js/commons/ajaxfileupload.js"/>"></script>
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -43,18 +43,24 @@
   <script src="<c:url value="/js/html5shiv.js"/>"></script>
   <script src="<c:url value="/js/respond.min.js"/>"></script>
 <![endif]-->
-<script src="<c:url value="/js/commons/bootstrap.min.js"/>"></script>
+<script
+	src="<c:url value="/js/commons/boostrap-4.0.0-beta/bootstrap.min.js"/>"></script>
 <script src="<c:url value="/js/commons/kendo.web.min.js"/>"></script>
 <script src="<c:url value="/js/commons/kendo.all.min.js"/>"></script>
 <script
 	src="<c:url value="/js/kendo/cultures/kendo.culture.zh-TW.min.js"/>"></script>
 <script src="<c:url value="/js/commons/application.js"/>"></script>
 <!-- semantic -->
+<%-- <script
+	src="<c:url value="/js/semantic/packaged/javascript/semantic.min.js"/>"></script> --%>
 <script
-	src="<c:url value="/js/semantic/packaged/javascript/semantic.min.js"/>"></script>
+	src="<c:url value="/js/semantic/semantic-2.2/semantic.min.js"/>"></script>	
 <link rel="stylesheet" href="<c:url value="/css/nav/navbar_pic.css"/>" />
-<link href="<c:url value="/js/semantic/packaged/css/semantic.min.css"/>"
-	rel="stylesheet">
+ <link href="<c:url value="/js/semantic/packaged/css/semantic.min.css"/>"
+	rel="stylesheet"> 
+<%-- <link href="<c:url value="/js/semantic/semantic-2.2/semantic.min.css"/>"
+	rel="stylesheet"> --%>
+	
 <!-- application -->
 <link href="<c:url value="/css/commons/application.css"/>"
 	rel="stylesheet">
