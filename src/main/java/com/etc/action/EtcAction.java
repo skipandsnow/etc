@@ -16,4 +16,8 @@ public class EtcAction {
 	public String toAnalysis3() {
 		return "analysis3";
 	}
+	
+	public String toTest() {
+		return "test";
+	}	
 }

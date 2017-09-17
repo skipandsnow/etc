@@ -6,4 +6,7 @@
 	<excludes>
 		<pattern>/va_wav*</pattern>
 	</excludes>
+	<excludes>
+		<pattern>/etc_toTest</pattern>
+	</excludes>	
 </decorators>

@@ -14,7 +14,7 @@
 <!DOCTYPE HTML>
 <html lang="zh-TW">
 <head>
-<title><decorator:title default="ETC-Highway Analysis" /></title>
+<title><decorator:title default="E起定疏通" /></title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -50,20 +50,21 @@
 <script
 	src="<c:url value="/js/kendo/cultures/kendo.culture.zh-TW.min.js"/>"></script>
 <script src="<c:url value="/js/commons/application.js"/>"></script>
+<!-- application -->
+
 <!-- semantic -->
 <%-- <script
-	src="<c:url value="/js/semantic/packaged/javascript/semantic.min.js"/>"></script> --%>
-<script
-	src="<c:url value="/js/semantic/semantic-2.2/semantic.min.js"/>"></script>	
-<link rel="stylesheet" href="<c:url value="/css/nav/navbar_pic.css"/>" />
- <link href="<c:url value="/js/semantic/packaged/css/semantic.min.css"/>"
-	rel="stylesheet"> 
-<%-- <link href="<c:url value="/js/semantic/semantic-2.2/semantic.min.css"/>"
+	src="<c:url value="/js/semantic/packaged/javascript/semantic.min.js"/>"></script>
+<link href="<c:url value="/js/semantic/packaged/css/semantic.min.css"/>"
 	rel="stylesheet"> --%>
-	
-<!-- application -->
-<link href="<c:url value="/css/commons/application.css"/>"
+ <script src="<c:url value="/js/semantic/semantic-2.2/semantic.min.js"/>"></script>
+ <link href="<c:url value="/js/semantic/semantic-2.2/semantic.min.css"/>"
 	rel="stylesheet">
+<link rel="stylesheet" href="<c:url value="/css/nav/navbar_pic.css"/>" />
+
+
+
+
 <decorator:head />
 </head>
 <body>

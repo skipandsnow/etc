@@ -1,0 +1,18 @@
+@CHARSET "BIG5";
+
+#drop_start_place {
+	/* display: inline; */
+	/* float:left; */
+	/* padding-left:0!important; */
+}
+
+#drop_end_place {
+	/* display: inline; */
+	
+}
+
+.selection_labels {
+	font-weight:bold;
+	vertical-align:middle;
+	/* float:left; */
+}

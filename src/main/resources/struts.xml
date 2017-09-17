@@ -67,6 +67,7 @@
 			<result name="analysis1">/WEB-INF/jsp/etc/etc_analysis1.jsp</result>
 			<result name="analysis2">/WEB-INF/jsp/etc/etc_analysis2.jsp</result>
 			<result name="analysis3">/WEB-INF/jsp/etc/etc_analysis3.jsp</result>
+			<result name="test">/WEB-INF/jsp/etc/etc_test.jsp</result>
 		</action>
 	</package>
 
