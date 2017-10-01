@@ -1,6 +1,22 @@
 package com.etc.action;
 
-public class EtcAction {
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.etc.model.DetectedStation;
+import com.etc.service.EtcService;
+import com.google.gson.Gson;
+import com.opensymphony.xwork2.ActionSupport;
+
+public class EtcAction extends ActionSupport {
+	private String jsonData;
+
+	Gson gson = new Gson();
+
+	@Autowired
+	private EtcService etcService;
+
 	public String execute() throws Exception {
 		return "index";
 	}
@@ -16,8 +32,28 @@ public class EtcAction {
 	public String toAnalysis3() {
 		return "analysis3";
 	}
-	
+
 	public String toTest() {
 		return "test";
-	}	
+	}
+
+	public String getShortestPath() {
+		List<DetectedStation> detectedList = etcService.getShortestPath("", "");
+		return gson.toJson(detectedList);
+	}
+
+	public String getDetechedStations() {
+		List<DetectedStation> detectedList = etcService.getShortestPath("", "");
+		jsonData = gson.toJson(detectedList);
+		return "json";
+	}
+
+	public String getJsonData() {
+		return jsonData;
+	}
+
+	public void setJsonData(String jsonData) {
+		this.jsonData = jsonData;
+	}
+
 }

@@ -3,6 +3,8 @@
  */
 
 $(document).ready(function() {
+	getDetectedStations();
+
 	$('#drop_highway').dropdown({
 		values : [ {
 			name : '中山高速公路(一號高速公路)',
@@ -30,20 +32,35 @@ $(document).ready(function() {
 			time = i - 12;
 		}
 		if (i == 0) {
+			time_seg = '半夜'
 			time_val.push({
-				name : time_seg + time + '點',
-				value : 0,
+				name : time_seg + '12點',
+				value : '0',
 				selected : true
 			});
 			continue;
 		}
-		alert(i);
 		time_val.push({
 			name : time_seg + time + '點',
-			value : time,
+			value : (time + 12).toString(),
 		});
 	}
+
+	// alert(JSON.stringify(time_val));
 	$('#drop_time_segment').dropdown({
 		values : time_val
 	});
 });
+
+function getDetectedStations() {
+
+	$.ajax({
+		type : "POST",
+		dataType : "json",
+		url : 'etc_getDetechedStations',
+		success : function(response) {
+			alert(JSON.stringify(JSON.parse(response)[0]));
+		}
+	});
+
+}

@@ -13,7 +13,7 @@
 	<div class="ui grid">
 		<div class="row">
 			<div class="two wide column"
-				style="padding-right: 0 !important; vertical-align: middle; text-align: center;">
+				style="padding-right: 0 !important; vertical-align: middle; text-align: left;">
 				<label class="selection_labels" style="font-size: 20px;">請選擇起始地：</label>
 			</div>
 			<div class="five wide column" style="padding-left: 0 !important">
@@ -22,7 +22,7 @@
 				</div>
 			</div>
 			<div class="two wide column"
-				style="padding-right: 0 !important; vertical-align: middle; text-align: center;">
+				style="padding-right: 0 !important; vertical-align: middle; text-align: left;">
 				<label class="selection_labels" style="font-size: 20px;">請選擇目的地：</label>
 			</div>
 			<div class="five wide column" style="padding-left: 0 !important">
@@ -33,7 +33,7 @@
 		</div>
 		<div class="row">
 			<div class="two wide column"
-				style="padding-right: 0 !important; vertical-align: middle; text-align: center;">
+				style="padding-right: 0 !important; vertical-align: middle; text-align: left;">
 				<label class="selection_labels" style="font-size: 20px;">我要走這道：</label>
 			</div>
 			<div id="drop_highway" class="ui fluid search selection dropdown"
@@ -43,7 +43,7 @@
 				<div class="menu"></div>
 			</div>
 			<div class="two wide column"
-				style="padding-right: 0 !important; vertical-align: middle; text-align: center;">
+				style="padding-right: 0 !important; vertical-align: middle; text-align: left;">
 				<label class="selection_labels" style="font-size: 20px;">給我好時段：</label>
 			</div>
 			<div id="drop_time_segment" class="ui fluid search selection dropdown"

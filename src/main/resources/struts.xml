@@ -39,7 +39,6 @@
 			<result name="json" type="json">
 				<param name="root">jsonData</param>
 			</result>
-
 		</global-results>
 
 		<global-exception-mappings>

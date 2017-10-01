@@ -11,20 +11,19 @@
 
 	<!-- ========================= RESOURCE DEFINITIONS ========================= -->
 
-	<context:property-placeholder
-		location="classpath:conf/*.properties"
+	<context:property-placeholder location="classpath:conf/*.properties"
 		system-properties-mode="OVERRIDE" ignore-unresolvable="true" />
 
 	<!-- import the dataSource definition -->
-<!-- 	<import resource="datasource-config.xml" /> -->
+	 <import resource="datasource-config.xml" /> 
 
 	<!-- import the pdis definition <import resource="classpath:pdis/pdis-api-config.xml" 
 		/> -->
 
-    <!-- import the spring security definition -->
- <!--	<import resource="classpath:spring/spring-security.xml" /> -->
- 
-	<context:component-scan base-package="com.ctbc" />
+	<!-- import the spring security definition -->
+	<!-- <import resource="classpath:spring/spring-security.xml" /> -->
+
+	<context:component-scan base-package="com.etc" />
 	<beans />
 
 </beans>
