@@ -39,7 +39,12 @@
     margin-top: 5px;
     margin-right: -10px;
 }
-
+@font-face {
+    font-family: "naguri";
+    src: url(../etc/naguri.ttf);
+}
+.text_style{text-align:center;font-family: naguri;color: brown;    }
+.text_style:hover{text-align:center;font-family: naguri;color: black;    }
 
 
 .dropdown-submenu.pull-left {

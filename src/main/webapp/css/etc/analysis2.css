@@ -1,0 +1,62 @@
+@charset "utf-8";
+/* DIVCSS5-CSS初始化模板-www.divcss5.com */
+body, div,  ul,  li{margin:0; padding:0;font-style: normal;font:12px/22px "\5B8B\4F53",Arial, Helvetica, sans-serif}
+/* \5B8B\4F53 代表 宋体，更多中文字体转 Unicode http://www.divcss5.com/jiqiao/j325.shtml */
+ol, ul ,li{list-style:none}
+img {border: 0; vertical-align:middle}
+body{font: 16px arial;background-color: #000000; height:600px; width: 100%;  margin:auto; padding:0; }
+.clear{clear:both;height:1px;width:100%; overflow:hidden; margin-top:-1px}
+a{color:#000000;text-decoration:none} 
+a:hover{color:#BA2636;text-decoration:underline}
+#mrq{width:600px;position: absolute; z-index:-1;}
+#Marquee_x { overflow:hidden; width: 600px } 
+#Marquee_x ul li ,#Marquee_x ul li div{ float:left;line-height:25px;overflow:hidden} /* 横向滚动必须让所有li左浮动 */
+#Marquee_x ul li div{ float:left;line-height:25px;height:400px; width:600px; margin-left: -5px; background-size: 600px 400px; overflow:hidden}
+#Marquee_x ul li div img { width:600px; height:205px; display:block}
+#Marquee_x ul li div span{ display:block;}
+.unselectable {-moz-user-select: -moz-none;-khtml-user-select: none;-webkit-user-select: none;-ms-user-select: none;user-select: none;}
+@font-face {
+    font-family: "naguri";
+    src: url(naguri.ttf);
+}
+/* css formats for the gauge */
+.gauge{margin: 0px 0px 0px 0px}
+
+.gauge .domain {stroke-width: 2px;stroke: #000;}
+
+.gauge .tick line {stroke: #000;stroke-width: 2px;}
+
+.gauge line {stroke: #000;}
+
+.gauge .arc, .gauge .cursor {opacity: 0;}
+
+.gauge .major {fill: #000;font-size: 10px;font-family: 'Play', verdana, sans-serif;font-weight: normal;}
+
+.gauge .indicator {stroke: #EE3311;fill: #000;stroke-width: 4px;}
+
+/* css formats for the segment display */
+.segdisplay .on {fill: #00FFFF;}
+
+.segdisplay .off {fill: #00FFFF;opacity: 0.15;}
+
+/* left--> */
+.c_left{float: left;}
+.middle{    float: left;width: 600px;}
+.c_right{float: left; width:255px;}
+.liquidFillGaugeText { font-family: Helvetica; font-weight: bold; }
+.left_item{float:left;width: 125px;height: 100px;}
+.text_style{text-align:center;font-family: naguri;color: brown;}
+.text_item{font-size: 30px;font-style: normal; font-variant: normal; font-weight: 500; line-height: 26.4px; margin-top: 15px; margin-left: 12px;}
+.calendar{z-index:-1;height: 100px;}
+.car{height: 60px;width:90px;}
+ul#bcty365_nav{padding-left:50px; margin-bottom:10px; border-bottom:2px solid #ccc; overflow:hidden; _zoom:1;}
+ul#bcty365_nav li{float:left; display:inline; margin:10px;}
+ul#bcty365_nav li a{display:block;color:#000000; font-size:16px;}
+ul#bcty365_nav li a,#wimoban_p,#wimoban_p 
+ul#bcty365_nav li a:hover,#wimoban_p a:hover{color:red;}
+#car{height: 40px;width:50px;position: absolute; z-index:2; margin-left: 20px;margin-top: 190px;}
+#select_item{height:100px;width:900px; margin:auto;}
+#top_item{height:120px;width:600px; margin:auto;}
+#car_road{height: 255px;;    width: 600px;    margin: auto;}
+#calendar_detail{ height: 100px;width: 100px;}
+#analysis_btn{    margin: 5px 70px 0 0;cursor:pointer}

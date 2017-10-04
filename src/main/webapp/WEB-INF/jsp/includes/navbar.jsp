@@ -28,17 +28,16 @@
 		<div class="collapse navbar-collapse" id="navbar-collapse-1">
 			<ul class="nav navbar-nav">
 				<li id="home"><a href="<s:url action='index'/>"
-					style="font-size: 15px"><i class="large icon-home icon"></i>首頁</a>
+					style="font-size: 15px"><i class="large icon-home icon"></i><p class="text_style" style="float: right;">首頁</p></a>
 				</li>
-				<li id="analysis1"><a
-					href="<s:url value='/etc_toAnalysis1'/>" style="font-size: 15px"><i
-						class="large icon-search icon"></i>給我最佳路線</a></li>
+				<li id="analysis1"><a href="<s:url value='/etc_toAnalysis1'/>" style="font-size: 15px"><i
+						class="large icon-search icon"></i><p class="text_style" style="float: right;">給我最佳路線</p></a></li>
 				<li id="analysis2"><a href="<s:url value='/etc_toAnalysis2'/>"
 					style="font-size: 15px"><i class="large icon-search icon"></i>
-						出遊順暢日</a></li>
+						<p class="text_style" style="float: right;">出遊順暢日</p></a></li>
 				<li id="analysis3"><a href="<s:url value='/etc_toAnalysis3'/>"
 					style="font-size: 15px"><i class="large icon-search icon"></i>
-						診療不通室</a></li>
+						<p class="text_style" style="float: right;">診療不通室</p></a></li>
 <%-- 				<li id="datamanagement" class="dropdown menuimg"><a href="#"
 					class="dropdown-toggle" data-toggle="dropdown"><i
 						class="large icon-search icon"></i>資料管理<b class="caret"></b> </a>

@@ -13,10 +13,11 @@
 		<p></p>
 		<div style="text-align: center;">
 			<div style="position: relative; width: 450px; margin: 0 auto;">
-				<label id='title_platform'
+<!-- 				<label id='title_platform'
 					style="position: absolute; top: 18%; left: 20%; font-size: 25px;">E起定疏通</label>
 				<label id='title_platform_en'
 					style="position: absolute; top: 60%; left: 20%; font-size: 13px;">The "e" Highway</label>
+ -->
 				<p>
 					<img src="<c:url value='/images/0917Banner_03_blank.png' />" />
 				</p>
