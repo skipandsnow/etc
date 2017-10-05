@@ -34,6 +34,7 @@
 <script
 	src="<c:url value="/js/commons/JQuery-3.2.1/jquery-3.2.1.min.js"/>"></script>
 <script src="<c:url value="/js/commons/Popper-1.12.5/popper.min.js"/>"></script>
+<script src="<c:url value="/js/etc/index.js"/>"></script>
 <script
 	src="<c:url value="/js/commons/Popper-1.12.5/popper-utils.min.js"/>"></script>
 <script src="<c:url value="/js/commons/ajaxfileupload.js"/>"></script>

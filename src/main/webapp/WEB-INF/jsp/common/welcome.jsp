@@ -6,7 +6,7 @@
 <body>
 	<div class="index_logo" style="width:100%;text-align:center" >
 		<img class = "etc_logo" src="etc_images/ETC_logo.png" style="width: 800px;height: 430px; margin: 0 auto;"/>
-		<div class = "home_btn"></div>
+		<div id="toNextPage" class = "home_btn"><a href="<s:url value='/etc_toAnalysis2'/>"></a></div>
 	</div>
 </body>
 </html>
