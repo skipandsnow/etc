@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <decorators defaultdir="/WEB-INF/jsp/decorators">
 	<decorator name="main" page="main.jsp">
-		<pattern>/*</pattern>
+		<pattern>/etc_toAnalysis1</pattern>
+		<pattern>/etc_toAnalysis2</pattern>
+		<pattern>/etc_toAnalysis3</pattern>
 	</decorator>
-	<excludes>
-		<pattern>/va_wav*</pattern>
-	</excludes>
-	<excludes>
-		<pattern>/etc_toTest</pattern>
-	</excludes>	
+	<decorator name="main_no_header" page="main_no_header.jsp">
+		<pattern>/index</pattern>
+		<pattern>/welcome</pattern>
+		<pattern>/</pattern>
+	</decorator>	
 </decorators>

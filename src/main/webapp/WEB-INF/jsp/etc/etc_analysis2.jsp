@@ -15,7 +15,7 @@
     <script src="<c:url value="/js/jquery/jQuery-jcMarquee.js"/>"></script>
     <script src="<c:url value="/js/jquery/liquidFillGauge.js"/>"></script>
     <script src="<c:url value="/js/etc/analysis2.js"/>"></script>
-<title>ETC 第二張圖</title>
+<title>出遊順暢日</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- www.bcty365.com -->
@@ -29,8 +29,9 @@
 	<div class="c_top">
 		<div id="select_item">
 				<div class="row">
-					<div class="span5 col-md-5" id="sandbox-container"><input type="text" class="form-control">
+<!-- 					<div class="span5 col-md-5" id="sandbox-container"><input type="text" class="form-control">
 					</div>
+ -->
 					<div id="start_date" class="ui fluid search selection dropdown" 
 						style="width: 130px; float:left">
 						<input type="hidden" name="start"> <i class="dropdown icon"></i>

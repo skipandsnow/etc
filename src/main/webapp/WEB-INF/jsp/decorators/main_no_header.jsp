@@ -70,7 +70,7 @@
 <body>
 
 
-	<jsp:include page="../includes/navbar.jsp" />
+<%-- 	<jsp:include page="../includes/navbar.jsp" /> --%>
 
 	<div id="main" class="container">
 		<decorator:body />
