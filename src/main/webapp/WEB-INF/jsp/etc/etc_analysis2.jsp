@@ -75,18 +75,24 @@
 		</div>
 	</div>
 		
-	<div class="c_left" style="float:left;width: 130px;">
+	<div class="c_left" style="float:left;width: 130px; height:200px">
 		<div></div>
 		<div class="list-group">
-		  <a href="#" class="text_style list-group-item">First item</a>
-		  <a href="#" class="text_style list-group-item">Second item</a>
-		  <a href="#" class="text_style list-group-item">Third item</a>
+		  <a href="#" class="text_style list-group-item">10:30 基隆端</a>
+		  <a href="#" class="text_style list-group-item">10:55 內湖交流道</a>
+		  <a href="#" class="text_style list-group-item">11:25 機場系統交流道</a>
+		  <a href="#" class="text_style list-group-item">12:10 新竹交流道</a>
+		  <a href="#" class="text_style list-group-item">12:25 苗栗交流道</a>
+		  <a href="#" class="text_style list-group-item">13:00 三義交流道</a>
+		  <a href="#" class="text_style list-group-item" style="    background-color: #918787;">13:20 大雅交流道</a>
+		  <a href="#" class="text_style list-group-item">13:40 彰化交流道</a>
+		  
 		</div>
 	</div>
 	<div class="middle">
 		<div id="top_item">
 			<div class="left_item"><img class="calendar" src="etc_images/c_yi.gif" /></div>
-			<div class="text_style left_item"><p class="text_item">出行<p></div>
+			<div class="text_style left_item"><p class="text_item">出行<p><p class="text_item">祈福<p></div>
 			<div class="left_item "><svg class="circle_q" id="fillgauge4" width="100px" height="100px" onclick="gauge4.update(NewValue());"></svg></div>
 			<div class="left_item"><svg class="circle_q" id="fillgauge5" width="100px" height="100px" onclick="gauge5.update(NewValue());"></svg></div>
 			<div class="left_item" style="margin: -49px;"><span id="speedometer"></span></div>
