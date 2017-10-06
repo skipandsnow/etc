@@ -30,7 +30,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<div
+			<div class="vertical-center" 
 				style="padding-right: 0 !important; vertical-align: middle; text-align: left;">
 				<label class="selection_labels" style="font-size: 20px;">我要走這道：</label>
 				<!-- 我要走這道： -->
@@ -41,7 +41,7 @@
 				<div class="default text">請選擇高速公路</div>
 				<div class="menu"></div>
 			</div>
-			<div 
+			<div class="vertical-center" 
 				style="padding-right: 0 !important; padding-left: 15px !important; vertical-align: middle; text-align: left;">
 				<label class="selection_labels" style="font-size: 20px;">給我好時段：</label>
 			</div>

@@ -4,7 +4,7 @@
 
 $(document).ready(function() {
 	getDetectedStations();
-
+	getImpalaTables();
 	$('#drop_highway').dropdown({
 		values : [ {
 			name : '中山高速公路(一號高速公路)',
@@ -57,7 +57,20 @@ function getDetectedStations() {
 	$.ajax({
 		type : "POST",
 		dataType : "json",
-		url : 'etc_getDetechedStations',
+		url : 'etc_getDetectedStations',
+		success : function(response) {
+//			alert(JSON.stringify(JSON.parse(response)[0]));
+		}
+	});
+
+}
+
+function getImpalaTables() {
+
+	$.ajax({
+		type : "POST",
+		dataType : "json",
+		url : 'etc_getImpalaTables',
 		success : function(response) {
 //			alert(JSON.stringify(JSON.parse(response)[0]));
 		}

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.etc.model.DetectedStation;
+import com.etc.repository.EtcRepositoryDao;
 import com.etc.service.EtcService;
 import com.google.gson.Gson;
 import com.opensymphony.xwork2.ActionSupport;
@@ -17,6 +18,9 @@ public class EtcAction extends ActionSupport {
 	@Autowired
 	private EtcService etcService;
 
+	@Autowired
+	private EtcRepositoryDao etcRepositoryDao;
+	
 	public String execute() throws Exception {
 		return "index";
 	}
@@ -42,12 +46,15 @@ public class EtcAction extends ActionSupport {
 		return gson.toJson(detectedList);
 	}
 
-	public String getDetechedStations() {
+	public String getDetectedStations() {
 		List<DetectedStation> detectedList = etcService.getShortestPath("", "");
 		jsonData = gson.toJson(detectedList);
 		return "json";
 	}
-
+	public String getImpalaTables() {
+		jsonData = gson.toJson(etcRepositoryDao.getImpalaTables());
+		return "json";
+	}
 	public String getJsonData() {
 		return jsonData;
 	}

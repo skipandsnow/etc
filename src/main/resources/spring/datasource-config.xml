@@ -14,9 +14,17 @@
          http://www.springframework.org/schema/jee/spring-jee.xsd">
 
 	<!-- ========================= DATASOURCE DEFINITION ========================= -->
-	<context:property-placeholder location="classpath:conf/impala-access.properties"
+	<context:property-placeholder location="classpath:conf/impala-access.properties,classpath:conf/postgres-access.properties"
 		system-properties-mode="OVERRIDE" />
-	<!-- <bean id="impalaDriver" class="org.apache.hive.jdbc.HiveDriver" /> -->
+	<bean id="impalaDriver" class="com.cloudera.impala.jdbc4.Driver" />
+	<bean id="impalaDataSource"
+		class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+		<constructor-arg name="driver" ref="impalaDriver" />
+		<constructor-arg value="${impala.url}" name="url" />
+		<constructor-arg name="username" value="impala" />
+		<constructor-arg name="password" value="" />		
+	</bean>
+
 	<bean id="postgreSQLDriver" class="org.postgresql.Driver" />
 	<bean id="postgresDataSource"
 		class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
