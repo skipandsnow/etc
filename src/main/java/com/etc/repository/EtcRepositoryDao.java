@@ -1,7 +1,10 @@
 package com.etc.repository;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,8 +23,12 @@ import com.etc.model.DetectedStation;
 public class EtcRepositoryDao {
 
 	private JdbcTemplate jdbcTemplate;
+	// private JdbcTemplate jdbcTemplate2;
 
 	protected Logger logger = LoggerFactory.getLogger(getClass());
+	private static String JDBCDriver = "com.cloudera.impala.jdbc4.Driver";
+	// Define a string as the connection URL
+	private static final String CONNECTION_URL = "jdbc:impala://140.128.101.178:21050";
 
 	@Autowired
 	@Qualifier("postgresDataSource")
@@ -29,13 +36,23 @@ public class EtcRepositoryDao {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 
+	// @Autowired
+	// @Qualifier("impalaDataSource")
+	// public void setDataSource(SimpleDriverDataSource dataSource) {
+	// this.jdbcTemplate = new JdbcTemplate(dataSource);
+	// }
+
 	public JdbcTemplate getJdbcTemplate() {
 		return jdbcTemplate;
 	}
 
+	// public JdbcTemplate getJdbcTemplate2() {
+	// return jdbcTemplate2;
+	// }
+
 	/**
-	 * ÂèñÁöÑÊâÄÊúâÁç®Á´ãÁ´ôÈªûÁöÑË≥áË®ä
-	 * */
+	 * ®˙™∫©“¶≥øW•ﬂØ∏¬I™∫∏Í∞T
+	 */
 	public List<DetectedStation> getDetectedStations() {
 		String sql = " select gantryfrom, gantryfrom_zh, gantryto, gantryto_zh from detect_station_main";
 		List<DetectedStation> detectedStationList = jdbcTemplate.query(sql.toString(),
@@ -52,4 +69,42 @@ public class EtcRepositoryDao {
 		return detectedStationList;
 	}
 
+	/**
+	 * ¥˙∏’Impala
+	 */
+	public String getImpalaTables() {
+		String sql = " select * from etc_data.dim_highway";
+//		List<String> impalaTableList = jdbcTemplate.query(sql.toString(), new RowMapper<String>() {
+//			public String mapRow(ResultSet rs, int rowNum) throws SQLException {
+//				return "";
+//			}
+//		});
+		Statement stmt = null;
+		ResultSet rs = null;
+		Connection con = null;
+
+		try {
+			Class.forName(JDBCDriver);
+			con = DriverManager.getConnection(CONNECTION_URL);
+			stmt = con.createStatement();
+			rs = stmt.executeQuery(sql);
+			while (rs.next()) {
+				System.out.println(rs.getString(1));
+			}
+		} catch (SQLException | ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				rs.close();
+				stmt.close();
+				con.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		}
+		return "";
+	}
 }
