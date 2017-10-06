@@ -159,7 +159,7 @@ $(function(){
                 .call(gauge);
 
         segDisplay.value(450);
-        gauge.value(92);
+        gauge.value(80);
 
 	var config4 = liquidFillGaugeDefaultSettings();
     config4.circleThickness = 0.1;
@@ -204,4 +204,3 @@ $(function(){
         }
     }
 });
-$(".form_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
