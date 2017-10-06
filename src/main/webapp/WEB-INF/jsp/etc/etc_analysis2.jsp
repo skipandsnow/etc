@@ -10,8 +10,10 @@
     <script type="text/javascript" src="http://iop.io/js/vendor/polymer/PointerEvents/pointerevents.js"></script>
     <script type="text/javascript" src="http://iop.io/js/vendor/polymer/PointerGestures/pointergestures.js"></script>
     <script type="text/javascript" src="http://iop.io/js/iopctrl.js"></script>
+     <link href="<c:url value="/css/commons/bootstrap-4.0.0-beta/bootstrap-datetimepicker.css"/>" rel="stylesheet">
+    <link href="<c:url value="/css/commons/bootstrap-4.0.0-beta/bootstrap-datetimepicker.min.css"/>" rel="stylesheet">
     <link href="<c:url value="/css/etc/analysis2.css"/>" rel="stylesheet">
-    <script src="bootstrap-datepicker/js/locales/bootstrap-datepicker.zh-TW.min.js" charset="UTF-8"></script>
+    <script src="<c:url value="/js/commons/boostrap-4.0.0-beta/bootstrap-datetimepicker.zh-TW.js"/>" charset="UTF-8"></script>
     <script src="<c:url value="/js/jquery/jQuery-jcMarquee.js"/>"></script>
     <script src="<c:url value="/js/jquery/liquidFillGauge.js"/>"></script>
     <script src="<c:url value="/js/etc/analysis2.js"/>"></script>
@@ -31,10 +33,11 @@
 				<div class="row">
 <!-- 					<div class="span5 col-md-5" id="sandbox-container"><input type="text" class="form-control">
 					</div>
- -->
+ -->				
+ 					<input size="16" type="text" value="2012-06-15 14:45" readonly class="form_datetime">
 					<div id="start_date" class="ui fluid search selection dropdown" 
 						style="width: 130px; float:left">
-						<input type="hidden" name="start"> <i class="dropdown icon"></i>
+						<input data-format="yyyy-MM-dd" type="text" name="seldate"> <i class="dropdown icon"></i>
 						<div class="default text">請選擇出發日期</div>
 						<div class="menu"></div>
 					</div>

@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	var time_val = [];
+	var time_val = [],city_val=[];
 
 	for (var i = 0; i < 24; i++) {
 		var time_seg = '';
@@ -118,7 +118,5 @@ $(function(){
             return (Math.random()*100).toFixed(1);
         }
     }
-  //calendar
-    $('#sandbox-container input').datepicker({
-    });
 });
+$(".form_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
