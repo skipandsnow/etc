@@ -55,6 +55,13 @@ public class EtcAction extends ActionSupport {
 		jsonData = gson.toJson(etcRepositoryDao.getImpalaTables());
 		return "json";
 	}
+	
+	public String getEtcHistoryData(){
+		jsonData = gson.toJson(etcRepositoryDao.getEtcHistoryData());
+		return "json";
+	}
+	
+	//回傳JsonData使用
 	public String getJsonData() {
 		return jsonData;
 	}

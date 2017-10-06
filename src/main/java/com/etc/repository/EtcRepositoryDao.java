@@ -18,6 +18,7 @@ import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 import org.springframework.stereotype.Repository;
 
 import com.etc.model.DetectedStation;
+import com.etc.model.Highway;
 
 @Repository("etcRepositoryDao")
 public class EtcRepositoryDao {
@@ -50,9 +51,6 @@ public class EtcRepositoryDao {
 	// return jdbcTemplate2;
 	// }
 
-	/**
-	 * 取的所有獨立站點的資訊
-	 */
 	public List<DetectedStation> getDetectedStations() {
 		String sql = " select gantryfrom, gantryfrom_zh, gantryto, gantryto_zh from detect_station_main";
 		List<DetectedStation> detectedStationList = jdbcTemplate.query(sql.toString(),
@@ -69,16 +67,46 @@ public class EtcRepositoryDao {
 		return detectedStationList;
 	}
 
-	/**
-	 * 測試Impala
-	 */
+	public ArrayList<Highway> getEtcHistoryData() {
+		String sql = "select etc_date, highwayid, highway_caramount, highway_spacemeanspeed from etc_data.highway_metadata order by highwayid, etc_date";
+		Statement stmt = null;
+		ResultSet rs = null;
+		Connection con = null;
+		ArrayList<Highway> highwayList = new ArrayList<Highway>();
+		try {
+			Class.forName(JDBCDriver);
+			con = DriverManager.getConnection(CONNECTION_URL);
+			stmt = con.createStatement();
+			rs = stmt.executeQuery(sql);
+
+			while (rs.next()) {
+				Highway highway = new Highway();
+				highway.setEtc_date(rs.getString("etc_date"));
+				highway.setHighwayid(rs.getString("highwayid"));
+				highway.setCaramount(rs.getInt("highway_caramount"));
+				highway.setMeanspeed(rs.getDouble("highway_spacemeanspeed"));
+				highwayList.add(highway);
+			}
+		} catch (SQLException | ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				rs.close();
+				stmt.close();
+				con.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		}
+		return highwayList;
+	}
+
+	/** For testing */
 	public String getImpalaTables() {
 		String sql = " select * from etc_data.dim_highway";
-//		List<String> impalaTableList = jdbcTemplate.query(sql.toString(), new RowMapper<String>() {
-//			public String mapRow(ResultSet rs, int rowNum) throws SQLException {
-//				return "";
-//			}
-//		});
 		Statement stmt = null;
 		ResultSet rs = null;
 		Connection con = null;

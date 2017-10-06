@@ -1,7 +1,12 @@
 @CHARSET "BIG5";
+
 .vertical-center {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.highcharts-title {
+	font-family: naguri;
 }
