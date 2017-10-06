@@ -59,7 +59,7 @@ function getDetectedStations() {
 		dataType : "json",
 		url : 'etc_getDetechedStations',
 		success : function(response) {
-			alert(JSON.stringify(JSON.parse(response)[0]));
+//			alert(JSON.stringify(JSON.parse(response)[0]));
 		}
 	});
 

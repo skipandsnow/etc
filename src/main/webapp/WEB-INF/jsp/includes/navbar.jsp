@@ -30,9 +30,9 @@
 				<li id="home"><a href="<s:url action='index'/>"
 					style="font-size: 15px"><i class="large icon-home icon"></i><p class="head text_style" style="float: right;">首頁</p></a>
 				</li>
-<!-- 				<li id="analysis1"><a href="<s:url value='/etc_toAnalysis1'/>" style="font-size: 15px"><i
-						class="large icon-search icon"></i><p class="text_style" style="float: right;">給我最佳路線</p></a></li>
- -->
+				<li id="analysis1"><a href="<s:url value='/etc_toAnalysis1'/>"
+					style="font-size: 15px"><i class="large icon-search icon"></i>
+						<p class="head text_style" style="float: right;">診療不通室</p></a></li> 
 				<li id="analysis2"><a href="<s:url value='/etc_toAnalysis2'/>"
 					style="font-size: 15px"><i class="large icon-search icon"></i>
 						<p class="head text_style" style="float: right;">出遊順暢日</p></a></li>
