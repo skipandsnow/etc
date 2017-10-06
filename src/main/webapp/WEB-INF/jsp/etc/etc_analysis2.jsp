@@ -34,7 +34,6 @@
 <!-- 					<div class="span5 col-md-5" id="sandbox-container"><input type="text" class="form-control">
 					</div>
  -->				
- 					<input size="16" type="text" value="2012-06-15 14:45" readonly class="form_datetime">
 					<div id="start_date" class="ui fluid search selection dropdown" 
 						style="width: 130px; float:left">
 						<input data-format="yyyy-MM-dd" type="text" name="seldate"> <i class="dropdown icon"></i>

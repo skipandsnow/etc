@@ -1,6 +1,20 @@
 $(document).ready(function() {
-	var time_val = [],city_val=[];
-
+	var date_val=[],time_val = [],s_city_val=[],s_area_val=[],e_city_val=[],e_area_val=[];
+	//START DATE
+	date_val.push({
+		name:'2017-10-07',
+		value:'20171007',
+		selected:true
+	});
+	date_val.push({
+		name:'2017-10-08',
+		value:'20171008'
+	});
+	date_val.push({
+		name:'2017-10-09',
+		value:'20171009'
+	});
+	//START TIME
 	for (var i = 0; i < 24; i++) {
 		var time_seg = '';
 		var time = 0;
@@ -28,10 +42,81 @@ $(document).ready(function() {
 			value : (time + 12).toString(),
 		});
 	}
-
+//	START CITY s_city_val
+	s_city_val.push({
+		name:'基隆市',
+		value:'01',
+		selected:true
+	});
+	s_city_val.push({
+		name:'臺北市',
+		value:'02'
+	});
+	s_city_val.push({
+		name:'新北市',
+		value:'03'
+	});
+//	START ARAR s_area_val
+	s_area_val.push({
+		name:'信義區',
+		value:'0101',
+		selected:true
+	});
+	s_area_val.push({
+		name:'南港區',
+		value:'0202'
+	});
+	s_area_val.push({
+		name:'三重區',
+		value:'0303'
+	});
+//	END CITY
+	e_city_val.push({
+		name:'臺中市',
+		value:'06',
+		selected:true
+	});
+	e_city_val.push({
+		name:'彰化縣',
+		value:'07'
+	});
+	e_city_val.push({
+		name:'雲林縣',
+		value:'08'
+	});
+//	END AREA
+	e_area_val.push({
+		name:'西屯區',
+		value:'0606',
+		selected:true
+	});
+	e_area_val.push({
+		name:'員林市',
+		value:'0707'
+	});
+	e_area_val.push({
+		name:'斗六市',
+		value:'0808'
+	});
+	//INPUT DATA
 	// alert(JSON.stringify(time_val));
 	$('#start_time').dropdown({
 		values : time_val
+	});
+	$('#start_date').dropdown({
+		values : date_val
+	});
+	$('#start_city').dropdown({
+		values : s_city_val
+	});
+	$('#start_area').dropdown({
+		values : s_area_val
+	});
+	$('#end_city').dropdown({
+		values : e_city_val
+	});
+	$('#end_area').dropdown({
+		values : e_area_val
 	});
 });
 
