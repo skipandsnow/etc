@@ -7,6 +7,8 @@
 <head>
 <script src="<c:url value="/js/etc/analysis1.js"/>"></script>
 <link href="<c:url value="/css/etc/analysis1.css"/>" rel="stylesheet">
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
 </head>
 <body>
 	<div class="ui grid">

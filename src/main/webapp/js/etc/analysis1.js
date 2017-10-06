@@ -4,7 +4,7 @@
 
 $(document).ready(function() {
 	getDetectedStations();
-	getImpalaTables();
+//	getImpalaTables();
 	$('#drop_highway').dropdown({
 		values : [ {
 			name : '中山高速公路(一號高速公路)',
