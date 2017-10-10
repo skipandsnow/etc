@@ -103,7 +103,103 @@ public class EtcRepositoryDao {
 		}
 		return highwayList;
 	}
+//	GET THE SHORTEST ROAD
+	public String getShortestRoad() {
+		String sql = " select * from etc_data.No2_s7 ";
+		Statement stmt = null;
+		ResultSet rs = null;
+		Connection con = null;
 
+		try {
+			Class.forName(JDBCDriver);
+			con = DriverManager.getConnection(CONNECTION_URL);
+			stmt = con.createStatement();
+			rs = stmt.executeQuery(sql);
+			while (rs.next()) {
+				System.out.println(rs.getString(1));
+			}
+		} catch (SQLException | ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				rs.close();
+				stmt.close();
+				con.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		}
+		return "";
+	}
+
+//	GET THE City
+	public List<String> getCity() {
+		String sql = " select distinct city from etc_data.road_info";
+		Statement stmt = null;
+		ResultSet rs = null;
+		Connection con = null;
+		List<String> city = new ArrayList<String>();
+		try {
+			Class.forName(JDBCDriver);
+			con = DriverManager.getConnection(CONNECTION_URL);
+			stmt = con.createStatement();
+			rs = stmt.executeQuery(sql);
+			while (rs.next()) {
+				city.add(rs.getString(1));
+//				System.out.println(rs.getString(1));
+			}
+		} catch (SQLException | ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				rs.close();
+				stmt.close();
+				con.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		}
+		return city;
+	}
+
+//	GET THE City
+	public String getArea() {
+		String sql = " select distinct area,gantryname from etc_data.road_info where city = ?";
+		Statement stmt = null;
+		ResultSet rs = null;
+		Connection con = null;
+
+		try {
+			Class.forName(JDBCDriver);
+			con = DriverManager.getConnection(CONNECTION_URL);
+			stmt = con.createStatement();
+			rs = stmt.executeQuery(sql);
+			while (rs.next()) {
+				System.out.println(rs.getString(1));
+			}
+		} catch (SQLException | ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				rs.close();
+				stmt.close();
+				con.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		}
+		return "";
+	}
+	
 	/** For testing */
 	public String getImpalaTables() {
 		String sql = " select * from etc_data.dim_highway";
@@ -135,4 +231,6 @@ public class EtcRepositoryDao {
 		}
 		return "";
 	}
+	
+	
 }

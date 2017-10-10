@@ -5,26 +5,19 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 import org.springframework.stereotype.Repository;
 
-import com.etc.model.DetectedStation;
-import com.etc.model.Highway;
-
-@Repository("etcRepositoryDao")
+@Repository("etcRepositoryDao42")
 public class EtcRepositoryDao42 {
 
-	private JdbcTemplate jdbcTemplate;
-	// private JdbcTemplate jdbcTemplate2;
+//	private JdbcTemplate jdbcTemplate;
+	 private JdbcTemplate jdbcTemplate2;
 
 	protected Logger logger = LoggerFactory.getLogger(getClass());
 	private static String JDBCDriver = "com.cloudera.impala.jdbc4.Driver";
@@ -34,7 +27,7 @@ public class EtcRepositoryDao42 {
 	@Autowired
 	@Qualifier("postgresDataSource")
 	public void setDataSource(SimpleDriverDataSource dataSource) {
-		this.jdbcTemplate = new JdbcTemplate(dataSource);
+		this.jdbcTemplate2 = new JdbcTemplate(dataSource);
 	}
 
 	// @Autowired
@@ -43,70 +36,17 @@ public class EtcRepositoryDao42 {
 	// this.jdbcTemplate = new JdbcTemplate(dataSource);
 	// }
 
-	public JdbcTemplate getJdbcTemplate() {
-		return jdbcTemplate;
-	}
+//	public JdbcTemplate getJdbcTemplate() {
+//		return jdbcTemplate;
+//	}
 
-	// public JdbcTemplate getJdbcTemplate2() {
-	// return jdbcTemplate2;
-	// }
+	 public JdbcTemplate getJdbcTemplate2() {
+	 return jdbcTemplate2;
+	 }
 
-	public List<DetectedStation> getDetectedStations() {
-		String sql = " select gantryfrom, gantryfrom_zh, gantryto, gantryto_zh from detect_station_main";
-		List<DetectedStation> detectedStationList = jdbcTemplate.query(sql.toString(),
-				new RowMapper<DetectedStation>() {
-					public DetectedStation mapRow(ResultSet rs, int rowNum) throws SQLException {
-						DetectedStation detectedStation = new DetectedStation();
-						detectedStation.setGantryfrom_id(rs.getString("gantryfrom"));
-						detectedStation.setGantryfrom_zh(rs.getString("gantryfrom_zh"));
-						detectedStation.setGantryto_id(rs.getString("gantryto"));
-						detectedStation.setGantryto_zh(rs.getString("gantryto_zh"));
-						return detectedStation;
-					}
-				});
-		return detectedStationList;
-	}
-
-	public ArrayList<Highway> getEtcHistoryData() {
-		String sql = "select etc_date, highwayid, highway_caramount, highway_spacemeanspeed from etc_data.highway_metadata order by highwayid, etc_date";
-		Statement stmt = null;
-		ResultSet rs = null;
-		Connection con = null;
-		ArrayList<Highway> highwayList = new ArrayList<Highway>();
-		try {
-			Class.forName(JDBCDriver);
-			con = DriverManager.getConnection(CONNECTION_URL);
-			stmt = con.createStatement();
-			rs = stmt.executeQuery(sql);
-
-			while (rs.next()) {
-				Highway highway = new Highway();
-				highway.setEtc_date(rs.getString("etc_date"));
-				highway.setHighwayid(rs.getString("highwayid"));
-				highway.setCaramount(rs.getInt("highway_caramount"));
-				highway.setMeanspeed(rs.getDouble("highway_spacemeanspeed"));
-				highwayList.add(highway);
-			}
-		} catch (SQLException | ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			try {
-				rs.close();
-				stmt.close();
-				con.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
-		}
-		return highwayList;
-	}
-
-	/** For testing */
-	public String getImpalaTables() {
-		String sql = " select * from etc_data.dim_highway";
+//	GET THE SHORTEST ROAD
+	public String getShortestRoad() {
+		String sql = " select * from etc_data.No2_s7 ";
 		Statement stmt = null;
 		ResultSet rs = null;
 		Connection con = null;
@@ -135,4 +75,5 @@ public class EtcRepositoryDao42 {
 		}
 		return "";
 	}
+
 }

@@ -1,5 +1,9 @@
+var date_val=[],time_val = [],s_city_val=[],s_area_val=[],e_city_val=[],e_area_val=[];
+	
 $(document).ready(function() {
-	var date_val=[],time_val = [],s_city_val=[],s_area_val=[],e_city_val=[],e_area_val=[];
+	getStartCityTables();
+	getEndCityTables();
+//	getStartAreaTables();
 	//START DATE
 	date_val.push({
 		name:'2017-10-07',
@@ -43,47 +47,47 @@ $(document).ready(function() {
 		});
 	}
 //	START CITY s_city_val
-	s_city_val.push({
-		name:'基隆市',
-		value:'01',
-		selected:true
-	});
-	s_city_val.push({
-		name:'臺北市',
-		value:'02'
-	});
-	s_city_val.push({
-		name:'新北市',
-		value:'03'
-	});
+//	s_city_val.push({
+//		name:'基隆市',
+//		value:'01',
+//		selected:true
+//	});
+//	s_city_val.push({
+//		name:'臺北市',
+//		value:'02'
+//	});
+//	s_city_val.push({
+//		name:'新北市',
+//		value:'03'
+//	});
 //	START ARAR s_area_val
-	s_area_val.push({
-		name:'信義區',
-		value:'0101',
-		selected:true
-	});
-	s_area_val.push({
-		name:'南港區',
-		value:'0202'
-	});
-	s_area_val.push({
-		name:'三重區',
-		value:'0303'
-	});
+//	s_area_val.push({
+//		name:'信義區',
+//		value:'0101',
+//		selected:true
+//	});
+//	s_area_val.push({
+//		name:'南港區',
+//		value:'0202'
+//	});
+//	s_area_val.push({
+//		name:'三重區',
+//		value:'0303'
+//	});
 //	END CITY
-	e_city_val.push({
-		name:'臺中市',
-		value:'06',
-		selected:true
-	});
-	e_city_val.push({
-		name:'彰化縣',
-		value:'07'
-	});
-	e_city_val.push({
-		name:'雲林縣',
-		value:'08'
-	});
+//	e_city_val.push({
+//		name:'臺中市',
+//		value:'06',
+//		selected:true
+//	});
+//	e_city_val.push({
+//		name:'彰化縣',
+//		value:'07'
+//	});
+//	e_city_val.push({
+//		name:'雲林縣',
+//		value:'08'
+//	});
 //	END AREA
 	e_area_val.push({
 		name:'西屯區',
@@ -106,14 +110,9 @@ $(document).ready(function() {
 	$('#start_date').dropdown({
 		values : date_val
 	});
-	$('#start_city').dropdown({
-		values : s_city_val
-	});
+
 	$('#start_area').dropdown({
 		values : s_area_val
-	});
-	$('#end_city').dropdown({
-		values : e_city_val
 	});
 	$('#end_area').dropdown({
 		values : e_area_val
@@ -204,3 +203,69 @@ $(function(){
         }
     }
 });
+
+function getStartCityTables() {
+	var city_data;
+	$.ajax({
+		type : "POST",
+		dataType : "json",
+		url : 'etc_getCity',
+		success : function(response) {
+			city_data = JSON.parse(response);
+			for (var i = 0; i < city_data.length; i++) {
+				if(i==0){
+					s_city_val.push({
+						name:city_data[i],
+						value:city_data[i],
+						selected:true
+					});
+				}else{
+					s_city_val.push({
+						name:city_data[i],
+						value:city_data[i],
+					});
+				}
+				
+			}
+			$('#start_city').dropdown({
+				values : s_city_val
+			});
+		}
+	});
+}
+
+	function getEndCityTables() {
+		var city_data;
+		$.ajax({
+			type : "POST",
+			dataType : "json",
+			url : 'etc_getCity',
+			success : function(response) {
+				city_data = JSON.parse(response);
+				for (var i = 0; i < city_data.length; i++) {
+					if(i==1){
+						e_city_val.push({
+							name:city_data[i],
+							value:city_data[i],
+							selected:true
+						});
+					}else{
+						e_city_val.push({
+							name:city_data[i],
+							value:city_data[i],
+						});
+					}
+					
+				}
+				$('#end_city').dropdown({
+					values : e_city_val
+				});
+			}
+		});
+		$('#start_city .menu div').on('click', function (event) {
+			  alert($(this).text());
+			});
+
+	
+
+}
