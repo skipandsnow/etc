@@ -50,7 +50,7 @@
 						style="width: 130px; float:left">
 						<input type="hidden" name="start"> <i class="dropdown icon"></i>
 						<div class="default text">請選擇出發縣市</div>
-						<div class="menu"></div>
+						<div class="menu" ></div>
 					</div>
 					<div id="start_area" class="ui fluid search selection dropdown" 
 						style="width: 130px; float:left">

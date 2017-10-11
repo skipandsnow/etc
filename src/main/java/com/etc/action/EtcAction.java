@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.etc.model.DetectedStation;
 import com.etc.repository.EtcRepositoryDao;
+import com.etc.repository.EtcRepositoryDao42;
 import com.etc.service.EtcService;
 import com.google.gson.Gson;
 import com.opensymphony.xwork2.ActionSupport;
@@ -20,7 +21,6 @@ public class EtcAction extends ActionSupport {
 
 	@Autowired
 	private EtcRepositoryDao etcRepositoryDao;
-	
 	public String execute() throws Exception {
 		return "index";
 	}
@@ -74,7 +74,6 @@ public class EtcAction extends ActionSupport {
 		return "json";
 	}
 	
-	//回傳JsonData使用
 	public String getJsonData() {
 		return jsonData;
 	}
