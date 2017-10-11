@@ -230,41 +230,13 @@ function getStartCityTables() {
 			$('#start_city').dropdown({
 				values : s_city_val
 			});
+//			DEFAULT AREA
+			getArea();
 		}
 	});
 //		GET THE CITY AREA
 		$( "#start_city div" ).click(function() {
-			alert($("#start_city .text").text());
-			var area_data;
-			var postData = {city:$("#start_city .text").text()};
-			$.ajax({
-				type : "POST",
-				dataType : "json",
-				data : postData,
-				url : 'etc_getArea',
-				success : function(response) {
-					area_data = JSON.parse(response);
-					alert(area_data);
-//					for (var i = 0; i < city_data.length; i++) {
-//						if(i==0){
-//							s_city_val.push({
-//								name:city_data[i],
-//								value:city_data[i],
-//								selected:true
-//							});
-//						}else{
-//							s_city_val.push({
-//								name:city_data[i],
-//								value:city_data[i],
-//							});
-//						}
-//						
-//					}
-//					$('#start_city').dropdown({
-//						values : s_city_val
-//					});
-				}
-			});
+			getArea();
 		});
 }
 
@@ -302,4 +274,35 @@ function getStartCityTables() {
 
 	
 
+}
+function getArea(){	
+	$.ajax({
+		type : "POST",
+		dataType : "json",
+		data : {
+				city:$("#start_city .text").text()
+		},
+		url : 'etc_getArea',
+		success : function(response) {
+			area_data = JSON.parse(response);
+			for (var i = 0; i < area_data.length; i++) {
+				if(i==0){
+					s_area_val.push({
+						name:area_data[i],
+						value:area_data[i],
+						selected:true
+					});
+				}else{
+					s_area_val.push({
+						name:area_data[i],
+						value:area_data[i],
+					});
+				}
+				
+			}
+			$('#start_area').dropdown({
+				values : s_area_val
+			});
+		}
+	});
 }

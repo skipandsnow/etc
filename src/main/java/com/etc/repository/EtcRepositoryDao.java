@@ -32,7 +32,7 @@ import com.sun.javafx.collections.MappingChange.Map;
 
 @Repository("etcRepositoryDao")
 public class EtcRepositoryDao {
-
+	public String city;
 	private JdbcTemplate jdbcTemplate;
 	// private JdbcTemplate jdbcTemplate2;
 
@@ -179,18 +179,20 @@ public class EtcRepositoryDao {
 	}
 
 //	GET THE Area
-	public String getArea() {
-		String sql = " select distinct area,gantryname from etc_data.road_info ";
+	public List<String> getArea(String city) {
+		String sql = " select distinct area,gantryname from etc_data.road_info where city = '"+city+"'";
 		Statement stmt = null;
 		ResultSet rs = null;
 		Connection con = null;
+		List<String> area = new ArrayList<String>();
 		try {
 			Class.forName(JDBCDriver);
 			con = DriverManager.getConnection(CONNECTION_URL);
 			stmt = con.createStatement();
 			rs = stmt.executeQuery(sql);
 			while (rs.next()) {
-				System.out.println(rs.getString(1));
+				area.add(rs.getString(1));
+//				System.out.println(rs.getString(1));
 			}
 		} catch (SQLException | ClassNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -206,7 +208,7 @@ public class EtcRepositoryDao {
 			}
 
 		}
-		return "";
+		return area;
 	}
 	
 	/** For testing */

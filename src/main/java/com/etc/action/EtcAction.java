@@ -13,7 +13,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class EtcAction extends ActionSupport {
 	private String jsonData;
-
+	public String city;
 	Gson gson = new Gson();
 
 	@Autowired
@@ -64,7 +64,7 @@ public class EtcAction extends ActionSupport {
 		return "json";
 	}
 	public String getArea() {
-		jsonData = gson.toJson(etcRepositoryDao.getArea());
+		jsonData = gson.toJson(etcRepositoryDao.getArea(city));
 		return "json";
 	}
 	public String getJsonData() {
