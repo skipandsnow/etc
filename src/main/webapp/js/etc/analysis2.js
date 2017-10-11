@@ -232,6 +232,40 @@ function getStartCityTables() {
 			});
 		}
 	});
+//		GET THE CITY AREA
+		$( "#start_city div" ).click(function() {
+			alert($("#start_city .text").text());
+			var area_data;
+			var postData = {city:$("#start_city .text").text()};
+			$.ajax({
+				type : "POST",
+				dataType : "json",
+				data : postData,
+				url : 'etc_getArea',
+				success : function(response) {
+					area_data = JSON.parse(response);
+					alert(area_data);
+//					for (var i = 0; i < city_data.length; i++) {
+//						if(i==0){
+//							s_city_val.push({
+//								name:city_data[i],
+//								value:city_data[i],
+//								selected:true
+//							});
+//						}else{
+//							s_city_val.push({
+//								name:city_data[i],
+//								value:city_data[i],
+//							});
+//						}
+//						
+//					}
+//					$('#start_city').dropdown({
+//						values : s_city_val
+//					});
+				}
+			});
+		});
 }
 
 	function getEndCityTables() {
@@ -262,8 +296,8 @@ function getStartCityTables() {
 				});
 			}
 		});
-		$('#start_city .menu div').on('click', function (event) {
-			  alert($(this).text());
+		$( "#end_city div" ).click(function() {
+				alert(JSON.stringify($("#end_city .text").text()));
 			});
 
 	

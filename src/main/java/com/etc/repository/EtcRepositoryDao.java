@@ -8,17 +8,27 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 import org.springframework.stereotype.Repository;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.etc.model.DetectedStation;
 import com.etc.model.Highway;
+import com.sun.javafx.collections.MappingChange.Map;
 
 @Repository("etcRepositoryDao")
 public class EtcRepositoryDao {
@@ -168,13 +178,12 @@ public class EtcRepositoryDao {
 		return city;
 	}
 
-//	GET THE City
+//	GET THE Area
 	public String getArea() {
-		String sql = " select distinct area,gantryname from etc_data.road_info where city = ?";
+		String sql = " select distinct area,gantryname from etc_data.road_info ";
 		Statement stmt = null;
 		ResultSet rs = null;
 		Connection con = null;
-
 		try {
 			Class.forName(JDBCDriver);
 			con = DriverManager.getConnection(CONNECTION_URL);
@@ -231,6 +240,5 @@ public class EtcRepositoryDao {
 		}
 		return "";
 	}
-	
 	
 }
