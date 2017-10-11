@@ -71,18 +71,18 @@
 
 	<div id="container"
 		style="min-width: 310px;  margin: 0 auto; padding-top: 30px"></div>
-	<svg width="800" height="100">
+	<svg width="1200" height="100">
 		<defs>
     		<marker id="markerArrow" markerWidth="13" markerHeight="13" refx="2" refy="6" orient="auto">
         		<path d="M2,2 L2,11 L10,6 L2,2" style="fill: #000000;" />
     		</marker>
 		</defs>
 		<line x1="180" y1="60" x2="120" y2="20"  stroke="black" stroke-width="2" marker-end="url(#markerArrow)"  />	
-		 <text x="190" y="65">有2起交通障礙事件!</text>
+		 <text x="190" y="65" fill="red">有2起交通障礙事件!</text>
 		<line x1="280" y1="45" x2="220" y2="20"  stroke="black" stroke-width="2" marker-end="url(#markerArrow)"  />	
-		 <text x="290" y="47">發生2起交通障礙事件，多路段塞車</text>		 
+		 <text x="290" y="47" fill="red">發生2起交通障礙事件，多路段塞車</text>		 
 		<line x1="850" y1="50" x2="730" y2="10"  stroke="black" stroke-width="2" marker-end="url(#markerArrow)"  />	
-		 <text x="950" y="47">發生3起交通障礙事件，多路段塞車</text>			 
+		 <text x="860" y="50" fill="red">發生3起交通障礙事件，多路段塞車</text>			 
 		 
 	</svg>
 	<div id="container_amount"

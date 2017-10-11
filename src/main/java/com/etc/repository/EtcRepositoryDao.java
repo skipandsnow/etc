@@ -8,21 +8,31 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 import org.springframework.stereotype.Repository;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.etc.model.DetectedStation;
 import com.etc.model.Highway;
+import com.sun.javafx.collections.MappingChange.Map;
 
 @Repository("etcRepositoryDao")
 public class EtcRepositoryDao {
-
+	public String city;
 	private JdbcTemplate jdbcTemplate;
 	// private JdbcTemplate jdbcTemplate2;
 
@@ -103,7 +113,104 @@ public class EtcRepositoryDao {
 		}
 		return highwayList;
 	}
+//	GET THE SHORTEST ROAD
+	public String getShortestRoad() {
+		String sql = " select * from etc_data.No2_s7 ";
+		Statement stmt = null;
+		ResultSet rs = null;
+		Connection con = null;
 
+		try {
+			Class.forName(JDBCDriver);
+			con = DriverManager.getConnection(CONNECTION_URL);
+			stmt = con.createStatement();
+			rs = stmt.executeQuery(sql);
+			while (rs.next()) {
+				System.out.println(rs.getString(1));
+			}
+		} catch (SQLException | ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				rs.close();
+				stmt.close();
+				con.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		}
+		return "";
+	}
+
+//	GET THE City
+	public List<String> getCity() {
+		String sql = " select distinct city from etc_data.road_info";
+		Statement stmt = null;
+		ResultSet rs = null;
+		Connection con = null;
+		List<String> city = new ArrayList<String>();
+		try {
+			Class.forName(JDBCDriver);
+			con = DriverManager.getConnection(CONNECTION_URL);
+			stmt = con.createStatement();
+			rs = stmt.executeQuery(sql);
+			while (rs.next()) {
+				city.add(rs.getString(1));
+//				System.out.println(rs.getString(1));
+			}
+		} catch (SQLException | ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				rs.close();
+				stmt.close();
+				con.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		}
+		return city;
+	}
+
+//	GET THE Area
+	public List<String> getArea(String city) {
+		String sql = " select distinct area,gantryname from etc_data.road_info where city = '"+city+"'";
+		Statement stmt = null;
+		ResultSet rs = null;
+		Connection con = null;
+		List<String> area = new ArrayList<String>();
+		try {
+			Class.forName(JDBCDriver);
+			con = DriverManager.getConnection(CONNECTION_URL);
+			stmt = con.createStatement();
+			rs = stmt.executeQuery(sql);
+			while (rs.next()) {
+				area.add(rs.getString(1));
+//				System.out.println(rs.getString(1));
+			}
+		} catch (SQLException | ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				rs.close();
+				stmt.close();
+				con.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		}
+		return area;
+	}
+	
 	/** For testing */
 	public String getImpalaTables() {
 		String sql = " select * from etc_data.dim_highway";

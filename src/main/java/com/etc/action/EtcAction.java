@@ -12,7 +12,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class EtcAction extends ActionSupport {
 	private String jsonData;
-
+	public String city;
 	Gson gson = new Gson();
 
 	@Autowired
@@ -53,6 +53,19 @@ public class EtcAction extends ActionSupport {
 	}
 	public String getImpalaTables() {
 		jsonData = gson.toJson(etcRepositoryDao.getImpalaTables());
+		return "json";
+	}
+
+	public String getShortestRoad() {
+		jsonData = gson.toJson(etcRepositoryDao.getShortestRoad());
+		return "json";
+	}
+	public String getCity() {
+		jsonData = gson.toJson(etcRepositoryDao.getCity());
+		return "json";
+	}
+	public String getArea() {
+		jsonData = gson.toJson(etcRepositoryDao.getArea(city));
 		return "json";
 	}
 	
