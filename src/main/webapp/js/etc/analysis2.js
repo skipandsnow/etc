@@ -1,4 +1,4 @@
-var date_val=[],time_val = [],s_city_val=[],s_area_val=[],e_city_val=[],e_area_val=[];
+var date_val=[],time_val = [],s_city_val=[],e_city_val=[];
 	
 $(document).ready(function() {
 	getStartCityTables();
@@ -236,6 +236,7 @@ function getStartCityTables() {
 	});
 //		GET THE CITY AREA
 		$( "#start_city div" ).click(function() {
+			$('#start_area menu').children().remove(); 
 			getArea();
 		});
 }
@@ -276,6 +277,7 @@ function getStartCityTables() {
 
 }
 function getArea(){	
+	var s_area_val=[];
 	$.ajax({
 		type : "POST",
 		dataType : "json",
@@ -300,6 +302,7 @@ function getArea(){
 				}
 				
 			}
+			
 			$('#start_area').dropdown({
 				values : s_area_val
 			});
