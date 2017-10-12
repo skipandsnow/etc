@@ -39,7 +39,7 @@ public class EtcAction42 extends ActionSupport {
 	}
 	
 	public String getCity() {
-		jsonData = gson.toJson(etcRepositoryDao.getCity());
+		jsonData = gson.toJson(etcRepositoryDao.getCity(city));
 		return "json";
 	}
 	public String getArea() {

@@ -49,19 +49,19 @@ public class EtcRepositoryDao42 {
 
 //	GET THE SHORTEST ROAD
 //		GET THE City
-		public List<String> getCity() {
+		public List<String> getCity(String city) {
 			String sql = " select city from etc_data.road_info_s group by city order by cast(max(lc) as int)";
 			Statement stmt = null;
 			ResultSet rs = null;
 			Connection con = null;
-			List<String> city = new ArrayList<String>();
+			List<String> result = new ArrayList<String>();
 			try {
 				Class.forName(JDBCDriver);
 				con = DriverManager.getConnection(CONNECTION_URL);
 				stmt = con.createStatement();
 				rs = stmt.executeQuery(sql);
 				while (rs.next()) {
-					city.add(rs.getString(1));
+					result.add(rs.getString(1));
 //					System.out.println(rs.getString(1));
 				}
 			} catch (SQLException | ClassNotFoundException e) {
@@ -78,7 +78,7 @@ public class EtcRepositoryDao42 {
 				}
 
 			}
-			return city;
+			return result;
 		}
 
 //		GET THE Area

@@ -46,62 +46,7 @@ $(document).ready(function() {
 			value : (time + 12).toString(),
 		});
 	}
-//	START CITY s_city_val
-//	s_city_val.push({
-//		name:'基隆市',
-//		value:'01',
-//		selected:true
-//	});
-//	s_city_val.push({
-//		name:'臺北市',
-//		value:'02'
-//	});
-//	s_city_val.push({
-//		name:'新北市',
-//		value:'03'
-//	});
-//	START ARAR s_area_val
-//	s_area_val.push({
-//		name:'信義區',
-//		value:'0101',
-//		selected:true
-//	});
-//	s_area_val.push({
-//		name:'南港區',
-//		value:'0202'
-//	});
-//	s_area_val.push({
-//		name:'三重區',
-//		value:'0303'
-//	});
-//	END CITY
-//	e_city_val.push({
-//		name:'臺中市',
-//		value:'06',
-//		selected:true
-//	});
-//	e_city_val.push({
-//		name:'彰化縣',
-//		value:'07'
-//	});
-//	e_city_val.push({
-//		name:'雲林縣',
-//		value:'08'
-//	});
-//	END AREA
-	e_area_val.push({
-		name:'西屯區',
-		value:'0606',
-		selected:true
-	});
-	e_area_val.push({
-		name:'員林市',
-		value:'0707'
-	});
-	e_area_val.push({
-		name:'斗六市',
-		value:'0808'
-	});
+
 	//INPUT DATA
 	// alert(JSON.stringify(time_val));
 	$('#start_time').dropdown({
@@ -111,12 +56,6 @@ $(document).ready(function() {
 		values : date_val
 	});
 
-	$('#start_area').dropdown({
-		values : s_area_val
-	});
-	$('#end_area').dropdown({
-		values : e_area_val
-	});
 });
 
 $(function(){
@@ -209,6 +148,9 @@ function getStartCityTables() {
 	$.ajax({
 		type : "POST",
 		dataType : "json",
+		data : {
+			city:""
+		},
 		url : 'etc_getCity',
 		success : function(response) {
 			city_data = JSON.parse(response);
@@ -231,13 +173,13 @@ function getStartCityTables() {
 				values : s_city_val
 			});
 //			DEFAULT AREA
-			getArea();
+			getStartArea();
 		}
 	});
 //		GET THE CITY AREA
 		$( "#start_city div" ).click(function() {
 			$('#start_area menu').children().remove(); 
-			getArea();
+			getStartArea();
 		});
 }
 
@@ -246,6 +188,9 @@ function getStartCityTables() {
 		$.ajax({
 			type : "POST",
 			dataType : "json",
+			data : {
+				city:$("#start_city .text").text()
+			},
 			url : 'etc_getCity',
 			success : function(response) {
 				city_data = JSON.parse(response);
@@ -267,16 +212,20 @@ function getStartCityTables() {
 				$('#end_city').dropdown({
 					values : e_city_val
 				});
+//				DEFAULT END AREA
+				getEndArea();
 			}
+		
 		});
 		$( "#end_city div" ).click(function() {
-				alert(JSON.stringify($("#end_city .text").text()));
+				$('#end_area menu').children().remove(); 
+				getEndArea();
 			});
 
 	
 
 }
-function getArea(){	
+function getStartArea(){	
 	var s_area_val=[];
 	$.ajax({
 		type : "POST",
@@ -305,6 +254,39 @@ function getArea(){
 			
 			$('#start_area').dropdown({
 				values : s_area_val
+			});
+		}
+	});
+}
+function getEndtArea(){	
+	var e_area_val=[];
+	$.ajax({
+		type : "POST",
+		dataType : "json",
+		data : {
+				city:$("#end_city .text").text()
+		},
+		url : 'etc_getArea',
+		success : function(response) {
+			area_data = JSON.parse(response);
+			for (var i = 0; i < area_data.length; i++) {
+				if(i==0){
+					e_area_val.push({
+						name:area_data[i],
+						value:area_data[i],
+						selected:true
+					});
+				}else{
+					e_area_val.push({
+						name:area_data[i],
+						value:area_data[i],
+					});
+				}
+				
+			}
+			
+			$('#end_area').dropdown({
+				values : e_area_val
 			});
 		}
 	});
