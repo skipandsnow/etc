@@ -28,6 +28,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.etc.model.DetectedStation;
 import com.etc.model.Highway;
+import com.etc.model.HighwayMeta;
 import com.sun.javafx.collections.MappingChange.Map;
 
 @Repository("etcRepositoryDao")
@@ -77,8 +78,9 @@ public class EtcRepositoryDao {
 		return detectedStationList;
 	}
 
-	public ArrayList<Highway> getEtcHistoryData() {
-		String sql = "select etc_date, highwayid, highway_caramount, highway_spacemeanspeed from etc_data.highway_metadata order by highwayid, etc_date";
+	public ArrayList<Highway> getEtcHistoryData(HighwayMeta highwayMeta) {
+		String sql = "select etc_date, hour, highwayid, highway_caramount, highway_spacemeanspeed from etc_data.highway_metadata where "
+				+ "order by highwayid, etc_date";
 		Statement stmt = null;
 		ResultSet rs = null;
 		Connection con = null;

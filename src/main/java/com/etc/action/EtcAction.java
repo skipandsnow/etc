@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.etc.model.DetectedStation;
+import com.etc.model.HighwayMeta;
 import com.etc.repository.EtcRepositoryDao;
 import com.etc.repository.EtcRepositoryDao42;
 import com.etc.service.EtcService;
@@ -70,7 +71,8 @@ public class EtcAction extends ActionSupport {
 	}
 	
 	public String getEtcHistoryData(){
-		jsonData = gson.toJson(etcRepositoryDao.getEtcHistoryData());
+		HighwayMeta highwayMeta = new HighwayMeta();
+		jsonData = gson.toJson(etcRepositoryDao.getEtcHistoryData(highwayMeta));
 		return "json";
 	}
 	
