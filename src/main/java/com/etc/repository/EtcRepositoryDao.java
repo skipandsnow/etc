@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -147,6 +148,50 @@ public class EtcRepositoryDao {
 		return "";
 	}
 
+	/**Get gantry map*/
+	public HashMap<String, ArrayList<String>> getGantryMap(){
+		String sql = "select gantryfrom, gantryto from etc_data.distinct_gantries order by gantryfrom";
+		Statement stmt = null;
+		ResultSet rs = null;
+		Connection con = null;
+		HashMap<String, ArrayList<String>> gantryMap = new HashMap<String, ArrayList<String>>();
+		try {
+			Class.forName(JDBCDriver);
+			con = DriverManager.getConnection(CONNECTION_URL);
+			stmt = con.createStatement();
+			rs = stmt.executeQuery(sql);
+			String tmpGantry = "";
+			ArrayList<String> gantryList = new ArrayList<String>();
+
+			rs.next();
+			tmpGantry = rs.getString("gantryfrom");
+			gantryList.add(rs.getString("gantryto"));
+			while (rs.next()) {
+				if (!tmpGantry.equals(rs.getString("gantryfrom"))) {
+					gantryMap.put(tmpGantry, gantryList);
+					gantryList = new ArrayList<String>();
+					tmpGantry = rs.getString("gantryfrom");
+				}
+				gantryList.add(rs.getString("gantryto"));
+				gantryMap.put(tmpGantry, gantryList);
+			}
+		} catch (SQLException | ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				rs.close();
+				stmt.close();
+				con.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		}
+		return gantryMap;
+	}
+	
 //	GET THE City
 	public List<String> getCity() {
 		String sql = " select distinct city from etc_data.road_info";
